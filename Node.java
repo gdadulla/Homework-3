@@ -18,4 +18,11 @@ public class Node {
 			return name;
 		}
  
+		public void setNext(Node node){
+			this.next = node;
+		}
+		
+		public Node getNext(){
+			return next;
+		}
 }
