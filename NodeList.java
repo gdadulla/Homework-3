@@ -26,4 +26,20 @@ public class NodeList {
 		return size;
 	}
 	
+	 public void printForward(){
+	        Node temp = head;
+	        while(temp != null){
+	            System.out.println(temp);
+	            temp = temp.getNext();
+	        }
+	    }
+	
+	 public void printBackward(){
+	        Node temp = tail;
+	        while(temp != null){
+	            System.out.println(temp);
+	            temp = temp.getPrev();
+	        }
+	    }
+	     
 }
