@@ -43,12 +43,17 @@ public class NodeList {
 	     
 	   public boolean findString(String s){
 	        Node currentNode = head; 
-	        while(currentNode.getName()!= s)
-	        {
-	            currentNode = currentNode.getNext();
-	            if(currentNode == null)
-	                return false;
+	        while(currentNode.getName() != s){
+	        	currentNode = currentNode.getNext();
+	        	if(currentNode.getName()== s){
+	        		System.out.println(s + " is in list");
+	        		return true;
+	        	}
+	        	if(currentNode.getName() != s && currentNode.getNext() == null){
+	        		System.out.println(s + " is not in list");
+	        		return false;
+	        	}
 	        }
-	        return true;
-	    }
+	   return true;  	
+	   }	   
 }

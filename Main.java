@@ -20,5 +20,13 @@ public class Main {
 		System.out.println("printForward and printBackwards test");
 		list.printForward();
 		list.printBackward();
+		System.out.println(" ");
+		
+		
+		
+		System.out.println("findString test");
+		list.findString("Duck");
+		list.findString("Fish");
+		
 	}
 }
