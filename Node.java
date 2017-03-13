@@ -1,9 +1,10 @@
 package Homework3;
 
 public class Node {
-
+	
 		private String name;
 		private Node next;
+		private Node prev;
 		
 		public Node(String name){
 			this.name = name;
@@ -24,5 +25,17 @@ public class Node {
 		
 		public Node getNext(){
 			return next;
+		}
+		
+		public void setPrev(Node node){
+			this.prev = node;
+		}
+		
+		public Node getPrev(){
+			return prev;
+		}
+		
+		public String toString() {
+			return "Name " + this.name;
 		}
 }
