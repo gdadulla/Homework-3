@@ -14,10 +14,10 @@ public class NodeList {
 			tail = head;	
 		}
 		else{
-			tail.setNext(newNode);
-			newNode.setPrev(tail);
-			newNode.setNext(null);
-			tail = newNode;
+			tail.setNext(n);
+			n.setPrev(tail);
+			n.setNext(null);
+			tail = n;
 		}
 		size++;
 	}
