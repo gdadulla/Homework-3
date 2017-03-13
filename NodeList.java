@@ -1,6 +1,5 @@
 package Homework3;
 
-
 public class NodeList {
 
 	private int size;
@@ -42,4 +41,14 @@ public class NodeList {
 	        }
 	    }
 	     
+	   public boolean findString(String s){
+	        Node currentNode = head; 
+	        while(currentNode.getName()!= s)
+	        {
+	            currentNode = currentNode.getNext();
+	            if(currentNode == null)
+	                return false;
+	        }
+	        return true;
+	    }
 }
