@@ -7,7 +7,7 @@ public class NodeList {
 	private Node tail;
 	
 	public void add(Node n){
-		Node newNode = new Node(n.getName());
+		Node newNode = new Node(1, n.getName());
 		if(head == null){
 			head = newNode;
 			tail = head;	
