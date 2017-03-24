@@ -4,9 +4,9 @@ public class Main {
 
 	public static void main (String [] args){
 		NodeList list = new NodeList();
-		Node node = new Node(1 , "Dog");
-		Node node2 = new Node(2 , "Cat");
-		Node node3 = new Node(3 , "Duck");
+		Node node = new Node("Dog");
+		Node node2 = new Node("Cat");
+		Node node3 = new Node("Duck");
 		
 		list.add(node);
 		list.add(node2);
@@ -20,13 +20,16 @@ public class Main {
 		System.out.println("printForward and printBackwards test");
 		list.printForward();
 		list.printBackward();
-		System.out.println(" ");
-		
-		
+		System.out.println(" ");	
 		
 		System.out.println("findString test");
-		list.findString("Duck");
-		list.findString("Fish");
+		list.find("Duck");
+		list.find("Fish");
+		System.out.println(" ");	
+		
+		list.delete(node2);
+		list.printForward();
+		
 		
 	}
 }

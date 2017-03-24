@@ -3,7 +3,7 @@ package Homework3;
 public class NodeList {
 
 	private int size;
-	private Node head;
+	private Node head = null;
 	private Node tail;
 	
 	public void add(Node n){
@@ -41,11 +41,11 @@ public class NodeList {
 	        }
 	    }
 	     
-	   public boolean findString(String s){
+	   public boolean find(String s){
 	        Node currentNode = head; 
 	        while(currentNode.getName() != s){
 	        	currentNode = currentNode.getNext();
-	        	if(currentNode.getName()== s){
+	        	if(currentNode.getName().equals(s)){
 	        		System.out.println(s + " is in list");
 	        		return true;
 	        	}
@@ -54,6 +54,32 @@ public class NodeList {
 	        		return false;
 	        	}
 	        }
-	   return true;  	
+	   return false;  	
 	   }	   
+	   
+	   public void delete(Node n){
+		   Node temp = head;
+		   Node tempprev = null;
+		   if(head == n){
+			   head = head.getNext();
+			   head.setPrev(null);
+			   head.setNext(head.getNext());
+		   }
+		   if(tail == n){
+			   tail = tail.getPrev();
+			   tail.setNext(null);
+			   tail.setPrev(tail.getPrev());
+		   }
+		   else{
+			   while(temp.getNext() != null){
+				   tempprev = temp;
+				   temp = temp.getNext();
+				   if(temp == n){
+					   n = temp.getNext();
+					   n.setNext(temp.getNext());
+					   n.setPrev(tempprev);
+				   }
+			   }
+		   }
+}
 }

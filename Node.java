@@ -2,13 +2,11 @@ package Homework3;
 
 public class Node {
 		
-		private int id;
 		private String name;
 		private Node next;
 		private Node prev;
 		
-		public Node(int id, String name){
-			this.id = id;
+		public Node(String name){
 			this.name = name;
 			this.next = null;
 			this.prev = null;
@@ -22,13 +20,6 @@ public class Node {
 			return name;
 		}
 		
-		public void setId(int id){
-			this.id = id;
-		}
-		
-		public int getId(){
-			return id;
-		}
 		public void setNext(Node node){
 			this.next = node;
 		}
@@ -46,6 +37,6 @@ public class Node {
 		}
 		
 		public String toString() {
-			return "Id: " + this.id + " Name: " + this.name;
+			return " Name: " + this.name;
 		}
 }
