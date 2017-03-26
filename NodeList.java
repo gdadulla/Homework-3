@@ -27,6 +27,9 @@ public class NodeList {
 	
 	 public void printForward(){
 	        Node temp = head;
+	        if(temp == null){
+	        	System.out.println("List is empty");
+	        }
 	        while(temp != null){
 	            System.out.println(temp);
 	            temp = temp.getNext();
@@ -35,6 +38,9 @@ public class NodeList {
 	
 	 public void printBackward(){
 	        Node temp = tail;
+	        if(temp == null){
+	        	System.out.println("List is empty");
+	        }
 	        while(temp != null){
 	            System.out.println(temp);
 	            temp = temp.getPrev();
@@ -98,4 +104,17 @@ public class NodeList {
 		   }
 		   
 }
+	   public void destroy(){
+		   Node current = head;
+		   Node next = null;
+		   
+		   while(current != null){
+			   next = current.getNext();
+			   current = next;
+			   size--;
+		   }
+		   head = null;
+		   
+		   }
+		   
 }

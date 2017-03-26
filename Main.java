@@ -30,7 +30,7 @@ public class Main {
 		list.find("Fish");
 		System.out.println(" ");	
 		
-		list.delete(null);
+		list.destroy();
 		list.printForward();
 		
 		
