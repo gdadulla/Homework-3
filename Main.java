@@ -7,14 +7,17 @@ public class Main {
 		Node node = new Node("Dog");
 		Node node2 = new Node("Cat");
 		Node node3 = new Node("Duck");
+		Node node4 = new Node("Frog");
+		
 		
 		list.add(node);
 		list.add(node2);
 		list.add(node3);
+		list.add(node4);
 		
 		System.out.println("getNext and getPrev test");
-		System.out.println(node2.getNext());
-		System.out.println(node2.getPrev());
+		System.out.println(node4.getNext());
+		System.out.println(node.getPrev());
 		System.out.println(" ");
 		
 		System.out.println("printForward and printBackwards test");
@@ -27,7 +30,7 @@ public class Main {
 		list.find("Fish");
 		System.out.println(" ");	
 		
-		list.delete(node2);
+		list.delete(null);
 		list.printForward();
 		
 		

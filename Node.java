@@ -37,6 +37,6 @@ public class Node {
 		}
 		
 		public String toString() {
-			return " Name: " + this.name;
+			return "Name: " + this.name;
 		}
 }

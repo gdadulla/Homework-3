@@ -7,7 +7,7 @@ public class NodeList {
 	private Node tail;
 	
 	public void add(Node n){
-		Node newNode = new Node(1, n.getName());
+		Node newNode = new Node(n.getName());
 		if(head == null){
 			head = newNode;
 			tail = head;	
@@ -60,26 +60,42 @@ public class NodeList {
 	   public void delete(Node n){
 		   Node temp = head;
 		   Node tempprev = null;
+		   if(n == null){
+			   return;
+		   }
+		   if(size == 1){
+			   this.head = this.tail = null;
+			   this.size --;
+			   return;
+		   }
 		   if(head == n){
 			   head = head.getNext();
 			   head.setPrev(null);
 			   head.setNext(head.getNext());
+			   this.size --;
+			   return;
 		   }
 		   if(tail == n){
 			   tail = tail.getPrev();
 			   tail.setNext(null);
 			   tail.setPrev(tail.getPrev());
+			   this.size --;
+			   return;
 		   }
-		   else{
-			   while(temp.getNext() != null){
-				   tempprev = temp;
+		   while(temp.getNext() != null){
+				   
+			   tempprev = temp;
+			   temp = temp.getNext();
+			   if(temp.getName().equals(n.getName())){
+				   tempprev = temp.getPrev();
 				   temp = temp.getNext();
-				   if(temp == n){
-					   n = temp.getNext();
-					   n.setNext(temp.getNext());
-					   n.setPrev(tempprev);
-				   }
+				   tempprev.setNext(temp);
+				   temp.setPrev(tempprev);
+				   this.size--;
+				   return;
 			   }
+				   
 		   }
+		   
 }
 }
