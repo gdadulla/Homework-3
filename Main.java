@@ -5,7 +5,7 @@ public class Main {
 	public static void main (String [] args){
 		NodeList list = new NodeList();
 		
-		
+		//adds nodes to list
 		list.add("Dog");
 		list.add("Cat");
 		list.add("Duck");
@@ -24,11 +24,12 @@ public class Main {
 		list.find("Fish");
 		System.out.println(" ");	
 		
+		//tests delete method
 		list.delete("Duck");
 		list.printForward();
 		System.out.println(" ");
 		
-		
+		//tests destroy method
 		list.destroy();
 		list.printForward();
 		
