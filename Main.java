@@ -4,31 +4,30 @@ public class Main {
 
 	public static void main (String [] args){
 		NodeList list = new NodeList();
-		Node node = new Node("Dog");
-		Node node2 = new Node("Cat");
-		Node node3 = new Node("Duck");
-		Node node4 = new Node("Frog");
 		
 		
-		list.add(node);
-		list.add(node2);
-		list.add(node3);
-		list.add(node4);
+		list.add("Dog");
+		list.add("Cat");
+		list.add("Duck");
+		list.add("Frog");
 		
-		System.out.println("getNext and getPrev test");
-		System.out.println(node4.getNext());
-		System.out.println(node.getPrev());
+		//iterate list forwards
+		list.printForward();
 		System.out.println(" ");
 		
-		System.out.println("printForward and printBackwards test");
-		list.printForward();
+		//iterate list backwards
 		list.printBackward();
 		System.out.println(" ");	
 		
-		System.out.println("findString test");
+		//tests find method
 		list.find("Duck");
 		list.find("Fish");
 		System.out.println(" ");	
+		
+		list.delete("Duck");
+		list.printForward();
+		System.out.println(" ");
+		
 		
 		list.destroy();
 		list.printForward();

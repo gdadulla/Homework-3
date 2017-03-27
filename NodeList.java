@@ -6,19 +6,45 @@ public class NodeList {
 	private Node head = null;
 	private Node tail;
 	
-	public void add(Node n){
-		Node newNode = new Node(n.getName());
+	public void add(String name){
+		Node current = head;
+		Node newNode = new Node(name);
 		if(head == null){
-			head = newNode;
-			tail = head;	
+			head = tail = newNode;
+		} 
+		
+		else if (head == tail){
+			if(name.compareTo(head.getName()) <= 0){
+				head = newNode;
+				head.setNext(tail);
+				tail.setPrev(head);
+			}
+			else{
+				tail = newNode;
+				head.setNext(tail);
+				tail.setPrev(head);
+			}
 		}
 		else{
-			tail.setNext(n);
-			n.setPrev(tail);
-			n.setNext(null);
-			tail = n;
+			Node temp = position(name);
+			
+			if(temp == head){
+				head.setPrev(newNode);
+				newNode.setNext(head);
+				head = newNode;
+			}
+			else if(temp == null){
+				tail.setNext(newNode);
+				newNode.setPrev(tail);
+				tail = newNode;
+			}
+			else{
+				newNode.setNext(temp);
+				newNode.setPrev(temp.getPrev());
+				temp.getPrev().setNext(newNode);
+				temp.setPrev(newNode);
+			}
 		}
-		size++;
 	}
 	
 	public int size(){
@@ -42,8 +68,9 @@ public class NodeList {
 	        	System.out.println("List is empty");
 	        }
 	        while(temp != null){
-	            System.out.println(temp);
+	        	System.out.println(temp);
 	            temp = temp.getPrev();
+	           
 	        }
 	    }
 	     
@@ -63,25 +90,22 @@ public class NodeList {
 	   return false;  	
 	   }	   
 	   
-	   public void delete(Node n){
+	   public void delete(String n){
 		   Node temp = head;
 		   Node tempprev = null;
 		   if(n == null){
 			   return;
 		   }
-		   if(size == 1){
-			   this.head = this.tail = null;
-			   this.size --;
-			   return;
-		   }
-		   if(head == n){
+		   
+		   if(head.getName().compareTo(n) <= 0){
 			   head = head.getNext();
 			   head.setPrev(null);
 			   head.setNext(head.getNext());
 			   this.size --;
 			   return;
 		   }
-		   if(tail == n){
+		   
+		   if(tail.getName().compareTo(n) <= 0){
 			   tail = tail.getPrev();
 			   tail.setNext(null);
 			   tail.setPrev(tail.getPrev());
@@ -92,7 +116,7 @@ public class NodeList {
 				   
 			   tempprev = temp;
 			   temp = temp.getNext();
-			   if(temp.getName().equals(n.getName())){
+			   if(temp.getName().compareTo(n) <= 0){
 				   tempprev = temp.getPrev();
 				   temp = temp.getNext();
 				   tempprev.setNext(temp);
@@ -104,6 +128,17 @@ public class NodeList {
 		   }
 		   
 }
+	   
+	   public Node position(String name){
+		   Node temp = head;
+		   while (temp != null){
+			   if(name.compareTo(temp.getName()) <= 0){
+				   return temp;
+			   }
+			   temp = temp.getNext();
+		   }
+		   return null;
+	   }
 	   public void destroy(){
 		   Node current = head;
 		   Node next = null;
